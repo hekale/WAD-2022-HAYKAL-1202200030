@@ -1,0 +1,13 @@
+.nav-item:hover {
+      background-color: darkgrey;
+    }
+
+.btn {
+      margin-top: 50px;
+  }
+
+/* modal .modal-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+} */
