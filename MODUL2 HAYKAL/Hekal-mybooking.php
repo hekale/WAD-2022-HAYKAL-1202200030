@@ -28,7 +28,7 @@
         $checkin = date('d-m-yy', strtotime($date)) ." ". date('H:i:s', strtotime($time));
         $duration=$_POST['duration'];
         $out = date('d-m-yy', strtotime($date)) ." ". date('H:i:s', strtotime($time.' + '.$duration.' days'));
-        $mobil='';
+        $mobil=$_POST['mobil'];
         $phone=$_POST['phone'];
         $service_price=0;
         if (isset($_POST['service'])) {

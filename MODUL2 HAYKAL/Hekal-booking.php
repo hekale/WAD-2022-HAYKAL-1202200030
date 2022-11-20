@@ -27,6 +27,7 @@
     <section class="container">
         <div class="row">
             <div class="col-6">
+                <img src="<?=$car['image']?>.jpg">
                 <form action="Hekal-mybooking.php" method="POST">
                     <div class="mb-3">
                         <label for="name" class="form-label">Nama</label>

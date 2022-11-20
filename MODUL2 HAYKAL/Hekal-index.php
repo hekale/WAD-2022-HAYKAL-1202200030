@@ -11,7 +11,7 @@
       crossorigin="anonymous">
   </head>
   <?php
-  $cars='[
+  $cars=[
     [
       "nama" => "Alphard",
       "harga" => 800000,
@@ -39,7 +39,7 @@
       "image" => 'Avanza',
       "value" => 3,
     ],
-  ]'
+  ]
   ?>
 
   <body>
@@ -75,7 +75,7 @@
                             <li class="text-center list-group-item text-primary"><?= $car['type']?></li>
                           </ul>
                           <div class="card-body">
-                            <a href="Hekal-booking.php" type="books" value=<?= $car['value']?> class="btn btn-primary card-link w-100">Book Now</a>
+                            <a href="Hekal-booking.php" type="books" class="btn btn-primary card-link w-100">Book Now</a>
                           </div>
                         </div>
                   </div>
@@ -90,5 +90,4 @@
           <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" 
           integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" 
           crossorigin="anonymous"></script>
-
   </body>
