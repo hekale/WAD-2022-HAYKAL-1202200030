@@ -1,51 +1,68 @@
-<!DOCTYPE html>
-    <html lang="en">
-    <head>
-      <meta charset="UTF-8">
-      <meta http-equiv="X-UA-Compatible" content="IE=edge">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" 
-      integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" 
-      crossorigin="anonymous">
-      <title>Rental Mobil Modul 3</title>
-    </head>
-    <body>
-        <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-            <div class="container-fluid">
-              <a class="navbar-brand" href="#"></a>
-              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-              </button>
-              <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav">
-                  <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="index.php">Home</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" aria-current="page" href="./pages/Edit_Hekal.php">Mycar</a>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </nav>
-          <div class="container py-5">
-            <div class="row">
-                <div class="col">
-                    <h1>Selamat Datang  Di Showroom Hekal</h1>
-                    <p class="mb-5">Showroom termurah terpercaya ter ter ter baik sedunia.</p>
-                    <a href="./pages/Add_Hekal.php" class="btn btn-primary p-2 px-4 mb-5">MyCar</a>
-                    <div>
-                        <img src="./images/logo-ead.png" alt="Logo" height="32" width="auto">
-                        <span class="px-3">FIKRI HAYKAL_1202200030</span>
-                    </div>
-                </div>
-                <div class="col">
-                    <img src="./images/Alphard.jpg" class="img-fluid">
-                </div>
-            </div>
+<?php
+require './config/connector.php';
+
+$query = "SELECT * FROM showroom_hekal_table";
+$hasil = mysqli_query($connection, $query);
+
+function onClick($hasil)
+{
+  if (mysqli_num_rows($hasil) > 0) {
+    header("Location: ./pages/ListCar_Hekal.php");
+  } else {
+    header("Location: ./pages/Add_Hekal.php");
+  }
+}
+?>
+
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Modul 3</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+  <style>
+    <?php include 'style/style.css'; ?>
+  </style>
+</head>
+
+<body>
+  <!-- Nav -->
+  <nav class="navbar navbar-expand-lg bg-primary">
+    <div class="container">
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav gap-3">
+          <a class="nav-link" style="color: white;" href="#home">Home</a>
+          <a class="nav-link" href="<?php if (mysqli_num_rows($hasil) > 0) {
+                                      echo "./pages/ListCar_Hekal.php";
+                                    } else {
+                                      echo "./pages/Add_Hekal.php";
+                                    } ?>">My Car
+          </a>        
         </div>
-    </body>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.min.js" 
-    integrity="sha384-IDwe1+LCz02ROU9k972gdyvl+AESN10+x7tBKgc9I5HFtuNz0wWnPclzo6p9vxnk" 
-    crossorigin="anonymous"></script>
+      </div>
+    </div>
+  </nav>
+
+  <section id="home">
+    <div class="container">
+      <div class="d-flex gap-5 cont justify-content-center align-items-center">
+        <div>
+          <h1>Selamat Datang Di<br /> Showroom Hekal</h1>
+          <p class="mt-3">Showroom Hehekale .<br /> terbaik terkeren termurah ter ter ter tak hingga kealam semesta</p>
+          <a href="<?php echo "./pages/Add_Hekal.php";?>" class="btn btn-primary">My Car</a>
+          <div class="d-flex align-items-center gap-5 mt-5">
+            <img src="<?php echo "./images/logo-ead.png" ?>" alt="logoead" style="width:100px;">
+            <p style="margin-top: 20px; font-size:14px;">Haykal_1202200030</p>
+          </div>
+        </div>
+        <img src="<?php echo "./images/Alphard.jpg" ?>" alt="mobil">
+      </div>
+    </div>
+  </section>
+  <!-- Jumbotron End -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+</body>
+
 </html>

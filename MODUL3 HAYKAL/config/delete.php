@@ -1,19 +1,12 @@
 <?php
-include './config/connector.php';
+require './connector.php';
 
-if(isset($_GET['id'])) {
-  $id = $_GET['id'];
-  $sql = "DELETE FROM showroom_hekal_table WHERE id_mobil = $id";
-  $query = mysqli_query($db, $sql);
+$id = $_GET['id'];
 
-  if($delete){
-    session_start();
-    $_SESSION['msg'] = 'success1';
-    redirect('../pages/ListCar_Hekal.php');
-  } else {
-    session_start();
-    $_SESSION['msg'] = 'failed1';
-    return redirect('../pages/ListCar_Hekal.php');
-  }
+$mysql = "DELETE FROM showroom_hekal_table WHERE id_mobil = $id";
+
+if (mysqli_query($connection, $mysql)) {
+  header("location: ../pages/ListCar_Hekal.php?pesan=delete");
+} else {
+  echo "Error";
 }
-?>

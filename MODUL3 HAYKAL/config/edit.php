@@ -1,5 +1,5 @@
 <?php
-include './config/connector.php';
+require './connector.php';
 
 $id = $_GET['id'];
 $carname = $_POST['mobil'];
@@ -7,34 +7,18 @@ $pemilik = $_POST['pemilik'];
 $brand = $_POST['merk'];
 $pembelian = $_POST['tanggal'];
 $describe = $_POST['deskripsi'];
-$status = $_POST['lunas'];
+$status = $_POST['pembayaran'];
+$images = $_FILES['foto']['name'];
 
-$imgfoto = $_FILES['Foto']['name'];
-$tmpname = $_FILES['Foto']['tmp_name'];
-$target = "../images";
-$upload = move_uploaded_file($tmpname, $target, $imgfoto);
+$target = "../asset/images/";
 
-if ($upload){
-  $sql = "UPDATE showroom_hekal_table 
-    SET Nama_mobil ='$carname', Pemilik_mobil='$pemilik', Merk_mobil='$brand', Tanggal_beli='$pembelian', Deskripsi='$describe',
-    Foto_mobil='$imgfoto', Status_pembayaran='$status'
-    WHERE id_mobil=$id";
+if (move_uploaded_file($_FILES['gambar']['tmp_name'], $target . $gambar)) {
+  $sql = "UPDATE showroom_hekal_table SET nama_mobil = '$carname', pemilik_mobil = '$pemilik', merk_mobil = '$brand', tanggal_beli = '$pembelian', deskripsi = '$describe', foto_mobil = '$images', status_pembayaran = '$status' WHERE id_mobil = $id";
+  if (mysqli_query($connection, $sql)) {
+    header("location: ../pages/ListCar_Hekal.php");
+  } else {
+    echo "Error";
+  }
 } else {
-  $sql ="UPDATE showroom_hekal_table
-    SET Nama_mobil='$carname', Pemilik_mobil='$pemilik', Merk_mobil='$brand', Tanggal_beli='$pembelian', Deskripsi='$describe',
-    Status_pembayaran='$status
-    WHERE id_mobil=$id";
+  echo "Error";
 }
-
-$update = mysqli_query($db, $sql);
-
-if($update){
-  session_start();
-  $_SESSION['msg'] = 'success';
-  redirect('../pages/ListCar_Hekal.php');
-} else {
-  session_start();
-  $_SESSION['msg'] = 'failed';
-  return redirect('../pages/ListCar_Hekal.php');
-}
-?>

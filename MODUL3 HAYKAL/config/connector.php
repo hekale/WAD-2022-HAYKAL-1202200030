@@ -1,12 +1,6 @@
 <?php
-    $dbhost = "localhost:3307";
-    $dbuser = "root";
-    $dbpass = "";
-    $dbname = "modul3";
-    $db = mysqli_connect ($dbhost, $dbuser, $dbpass, $dbname);
-    function redirect($url, $statuscode=303)
-    {
-        header('Location : '. $url, true,$statuscode);
-        die();
-    }
+$connection = new mysqli("localhost", "root", "", "modul3");
+
+if (!$connection) {
+    die("Koneksi Error: " . $connection->connect_error);}
 ?>
