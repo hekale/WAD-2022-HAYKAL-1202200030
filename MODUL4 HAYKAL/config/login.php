@@ -1,27 +1,31 @@
 <?php
-$connection = mysqli_connect("localhost", "root", "", "wad_modul4_hekal", "3306");
+if(!isset($_SESSION)){
+    session_start();
+}
+require "../config/connector.php";
 
-    include 'connector.php';
-    
-    $email = $_POST["email"];
-    $password = $_POST["password"];
-    $query = "SELECT * FROM user_haykal WHERE email = '$email' AND password = '$password'";
-    $result = mysqli_query($connection, $query);
-    $row = mysqli_fetch_assoc($result);
-    if ($row) {
-        if (isset($_POST["remember"])) {
-            $remember = $_POST['remember'];
-            setcookie('remember', $remember, time() + 60 * 60 * 24 * 30, '/');
-        }
-        setcookie('nama', $row['nama'], time() + 60 * 60 * 24 * 30, '/');
-        setcookie('email', $row['email'], time() + 60 * 60 * 24 * 30, '/');
+$mail = $_POST['email'];
+$pass = $_POST['pass'];
 
-            header('Location: ../pages/Home_Hekal.php');
-    }else{
-        
-        echo "<script>alert('Email atau Password Salah')</script>";
-        echo "<script>location='../index.php?page=login'</script>";
-        
+$dbuname = "SELECT * FROM users WHERE email='$mail'";
+$exe = mysqli_query($db, $dbuname);
+
+if (mysqli_num_rows($exe) == 1){
+    $result = mysqli_fetch_assoc($exe);
+
+    if(password_verify($pass, $result['password'])){
+        $_SESSION['user_id'] = $result['id'];
+        $_SESSION['user_name'] = $result['nama'];
+        header('Location: ../pages/Home_Hekal.php');
+        exit();
+
+    } else {
+        $_SESSION['color'] = 'red';
+        $_SESSION['message'] = 'Password Anda salah, silahkan coba lagi';
+        header('Location: ../pages/Login_Hekal.php');
+        exit();
     }
-
+}
+$_SESSION['message-error'] = 'Gagal Login';
+header('../pages/Login_Hekal.php')
 ?>
