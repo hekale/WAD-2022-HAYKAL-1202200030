@@ -33,7 +33,7 @@
                         <label for="nohp" class="fw-bold">Nomor Handphone</label>
                         <input type="text" id="nohp" class="form-control mb-3" name="nohp" placeholder="Masukkan no.hp" required>
                         <label for="pass" class="fw-bold">Kata Sandi</label>
-                        <input type="password" id="pass" class="form-control mb-3" name="passw" placeholder="Masukkan Kata Sandi" required>
+                        <input type="password" id="passw" class="form-control mb-3" name="passw" placeholder="Masukkan Kata Sandi" required>
                         <label for="passauth" class="fw-bold">Konfirmasi Kata Sandi</label>
                         <input type="password" id="passauth" class="form-control mb-3" name="pass" placeholder="Konfirmasi Kata Sandi" required>
                         <button type="submit" class="form-control btn btn-primary">Daftar</button>
