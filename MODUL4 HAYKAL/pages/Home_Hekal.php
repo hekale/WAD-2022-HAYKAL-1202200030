@@ -1,9 +1,9 @@
 <?php
-require './config/connector.php';
+require '../config/connector.php';
 
 $query = "SELECT * FROM showroom_hekal_table";
 $hasil = mysqli_query($connection, $query);
-
+session_start();
 function onClick($hasil)
 {
   if (mysqli_num_rows($hasil) > 0) {
@@ -35,9 +35,9 @@ function onClick($hasil)
         <div class="navbar-nav gap-3">
           <a class="nav-link" style="color: white;" href="#home">Home</a>
           <a class="nav-link" href="<?php if (mysqli_num_rows($hasil) > 0) {
-                                      echo "./pages/ListCar_Hekal.php";
+                                      echo "../pages/ListCar_Hekal.php";
                                     } else {
-                                      echo "./pages/Add_Hekal.php";
+                                      echo "../pages/Add_Hekal.php";
                                     } ?>">My Car
           </a>        
         </div>
@@ -48,10 +48,11 @@ function onClick($hasil)
                 <?=$_SESSION['user_name'];?>
             </button>
             <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="../pages/Profile_Hekal.php">Profile</a></li>
+                <li><a class="dropdown-item" href="../pages/Profil_Hekal.php">Profile</a></li>
                 <li><a class="dropdown-item" href="../pages/Home1_Hekal.php">Log Out</a></li>
             </ul>
     </div>
+    </nav>
   </nav>
 
   <section id="home">
@@ -60,13 +61,13 @@ function onClick($hasil)
         <div>
           <h1>Selamat Datang Di<br /> Showroom Hekal</h1>
           <p class="mt-3">Showroom Hehekale .<br /> terbaik terkeren termurah ter ter ter tak hingga kealam semesta</p>
-          <a href="<?php echo "./pages/Add_Hekal.php";?>" class="btn btn-primary">My Car</a>
+          <a href="<?php echo "../pages/Add_Hekal.php";?>" class="btn btn-primary">My Car</a>
           <div class="d-flex align-items-center gap-5 mt-5">
-            <img src="<?php echo "./images/logo-ead.png" ?>" alt="logoead" style="width:100px;">
+            <img src="<?php echo "../images/logo-ead.png" ?>" alt="logoead" style="width:100px;">
             <p style="margin-top: 20px; font-size:14px;">Haykal_1202200030</p>
           </div>
         </div>
-        <img src="<?php echo "./images/Alphard.jpg" ?>" alt="mobil">
+        <img src="<?php echo "../images/Alphard.jpg" ?>" alt="mobil">
       </div>
     </div>
   </section>

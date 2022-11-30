@@ -38,7 +38,7 @@ function onClick($hasil)
                                       echo "./pages/Register_Hekal.php";
                                     } else {
                                       echo "./pages/Login_Hekal.php";
-                                    } ?>">Login
+                                    } ?>">Login 
         </div>
       </div>
     </div>

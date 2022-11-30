@@ -46,7 +46,7 @@ require "../config/connector.php";
                     <label for="pass" class="fw-bold">Kata Sandi</label>
                     <input type="password" id="pass" class="form-control mb-3" name="pass" placeholder="Masukkan Kata Sandi" required>
                     <input type="checkbox" class="form-label">Remember me</p>
-                    <button type="submit" class="form-control btn btn-primary">Login</button>
+                    <button type="submit" name='login' class="form-control btn btn-primary">Login</button>
                 </form>
                 <p>Anda belum punya akun?<a href="../pages/Register_Hekal.php"><u>Daftar</u></a></p>
             </div>

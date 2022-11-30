@@ -4,11 +4,14 @@ if(!isset($_SESSION)){
 }
 require "../config/connector.php";
 
-$mail = $_POST['email'];
-$pass = $_POST['pass'];
+if (isset($_POST['login'])) {
+    $mail = $_POST['email'];
+    $pass = $_POST['pass'];
+}
 
-$dbuname = "SELECT * FROM users WHERE email='$mail'";
-$exe = mysqli_query($db, $dbuname);
+$db = "INSERT INTO user_haykal (email,pass) VALUES ('mail', 'pass')";
+$dbuname = "SELECT * FROM user_haykal WHERE email='$mail'";
+$exe = mysqli_query($connection, $dbuname);
 
 if (mysqli_num_rows($exe) == 1){
     $result = mysqli_fetch_assoc($exe);

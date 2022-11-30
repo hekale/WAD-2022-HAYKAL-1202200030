@@ -24,7 +24,7 @@ $hasil = mysqli_query($connection, $query);
     <div class="container">
       <div class="collapse navbar-collapse d-flex justify-content-between" id="navbarNavAltMarkup">
         <div class="navbar-nav gap-3">
-          <a class="nav-link" href="../index.php">Home</a>
+          <a class="nav-link" href="../pages/Home_Hekal.php">Home</a>
           <a class="nav-link" style="color: white;" href="#">My Car</a>
         </div>
         <a href="Add_Hekal.php" style="background-color: white; color:blue; border-radius: 5px; text-decoration: none; width: 150px; height: 35px; display:flex; justify-content:center; align-items:center; font-weight:500;">Add Car</a>
