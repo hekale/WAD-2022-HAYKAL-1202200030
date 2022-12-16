@@ -1,19 +1,3 @@
-<?php
-require '../config/connector.php';
-
-$query = "SELECT * FROM showroom_hekal_table";
-$hasil = mysqli_query($connection, $query);
-session_start();
-function onClick($hasil)
-{
-  if (mysqli_num_rows($hasil) > 0) {
-    header("Location: ./pages/ListCar_Hekal.php");
-  } else {
-    header("Location: ./pages/Add_Hekal.php");
-  }
-}
-?>
-
 <!doctype html>
 <html lang="en">
 
@@ -23,7 +7,6 @@ function onClick($hasil)
   <title>Modul 3</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
   <style>
-    <?php include 'style/style.css'; ?>
   </style>
 </head>
 
@@ -34,22 +17,17 @@ function onClick($hasil)
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav gap-3">
           <a class="nav-link" style="color: white;" href="#home">Home</a>
-          <a class="nav-link" href="<?php if (mysqli_num_rows($hasil) > 0) {
-                                      echo "../pages/ListCar_Hekal.php";
-                                    } else {
-                                      echo "../pages/Add_Hekal.php";
-                                    } ?>">My Car
+          <a class="nav-link" href="">
           </a>        
         </div>
       </div>
     </div>
     <div class="dropdown me-2">
             <button class="btn btn-light text-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                <?=$_SESSION['user_name'];?>
             </button>
             <ul class="dropdown-menu">
                 <li><a class="dropdown-item" href="../pages/Profil_Hekal.php">Profile</a></li>
-                <li><a class="dropdown-item" href="../pages/Home1_Hekal.php">Log Out</a></li>
+                <li><a class="dropdown-item" href="/login">Log Out</a></li>
             </ul>
     </div>
     </nav>
@@ -61,13 +39,13 @@ function onClick($hasil)
         <div>
           <h1>Selamat Datang Di<br /> Showroom Hekal</h1>
           <p class="mt-3">Showroom Hehekale .<br /> terbaik terkeren termurah ter ter ter tak hingga kealam semesta</p>
-          <a href="<?php echo "../pages/Add_Hekal.php";?>" class="btn btn-primary">My Car</a>
+          <a href="" class="btn btn-primary">My Car</a>
           <div class="d-flex align-items-center gap-5 mt-5">
-            <img src="<?php echo "../images/logo-ead.png" ?>" alt="logoead" style="width:100px;">
+            <img src="" alt="logoead" style="width:100px;">
             <p style="margin-top: 20px; font-size:14px;">Haykal_1202200030</p>
           </div>
         </div>
-        <img src="<?php echo "../images/Alphard.jpg" ?>" alt="mobil">
+        <img src="" alt="mobil">
       </div>
     </div>
   </section>

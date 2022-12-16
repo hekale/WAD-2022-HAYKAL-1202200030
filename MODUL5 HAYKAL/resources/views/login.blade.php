@@ -1,11 +1,3 @@
-<?php
-session_start();
-if(isset($_SESSION['user_id'])){
-    header('Location: ../pages/Home_Hekal.php');
-    die();
-}
-require "../config/connector.php";
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -24,23 +16,8 @@ require "../config/connector.php";
 </head>
 <body class="container-fluid">
     <div class="row">
-        <div class="col-6 img-login"></div>
-    
-        <div class="col-6">
-            <div class="container">
-            <?php if (isset($_SESSION['message']) && isset($_SESSION['color'])){ ?>
-                <div class="alert <?php if($_SESSION['color'] == 'red'){echo "alert-danger";}
-                elseif($_SESSION['color']=='green'){echo "alert-success";}?> alert-dismissible fade show fade in mt-3" role="alert">
-                    <?=$_SESSION['message']; ?>
-                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                </div>
-            <?php
-                unset($_SESSION['message']);
-                unset($_SESSION['color']);
-                }
-            ?>
                 <h3 class="mt-5">Login</h3>
-                <form method="post" action="../config/login.php" enctype="multipart/form-data">
+                <form method="post" action="/register" enctype="multipart/form-data">
                     <label for="email" class="fw-bold">Email</label>
                     <input type="text" id="email" class="form-control mb-3" name="email" placeholder="Masukkan email" required>
                     <label for="pass" class="fw-bold">Kata Sandi</label>
@@ -48,7 +25,7 @@ require "../config/connector.php";
                     <input type="checkbox" class="form-label">Remember me</p>
                     <button type="submit" name='login' class="form-control btn btn-primary">Login</button>
                 </form>
-                <p>Anda belum punya akun?<a href="../pages/Register_Hekal.php"><u>Daftar</u></a></p>
+                <p>Anda belum punya akun?<a href="/register"><u>Daftar</u></a></p>
             </div>
         </div>
     </div>   

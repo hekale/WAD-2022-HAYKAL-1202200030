@@ -1,4 +1,3 @@
-<?php session_start();?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,7 +14,6 @@
         }
     </style>  
 </head>
-
 
 <body>
     <div class="container-fluid">
@@ -38,7 +36,7 @@
                         <input type="password" id="passauth" class="form-control mb-3" name="pass" placeholder="Konfirmasi Kata Sandi" required>
                         <button type="submit" class="form-control btn btn-primary">Daftar</button>
                     </form>
-                    <p>Anda sudah punya akun? <a href="../pages/Login_Hekal.php"><u>Login</u></a></p>
+                    <p>Anda sudah punya akun? <a href="/login"><u>Login</u></a></p>
                 </div>
             </div>
         </div>   
